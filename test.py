@@ -1,4 +1,10 @@
 import tkinter as tk
+import RPi.GPIO as GPIO
+
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(16, GPIO.OUT)
+GPIO.setup(20, GPIO.OUT)
+GPIO.setup(21, GPIO.OUT)
 
 window = tk.Tk()
 window.title("SPATENT shotMachine")
@@ -16,9 +22,11 @@ def btn_v1_handle_left_click(event):
     if(btn_v1_pressed):
         btn_v1_pressed = False
         btn_v1.configure(bg="black")
+        GPIO.output(16, GPIO.LOW)
     else:
         btn_v1_pressed = True
         btn_v1.configure(bg="green")
+        GPIO.output(16, GPIO.HIGH)
         
 def btn_v2_handle_left_click(event):
     global btn_v2_pressed
