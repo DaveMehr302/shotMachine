@@ -43,11 +43,11 @@ def btn_v3_handle_left_click(event):
     if(btn_v3_pressed):
         btn_v3_pressed = False
         btn_v3.configure(bg="black")
-        GPIO.output(21, GPIO.HIGH)
+        GPIO.output(21, GPIO.LOW)
     else:
         btn_v3_pressed = True
         btn_v3.configure(bg="green")
-        GPIO.output(21, GPIO.LOW)
+        GPIO.output(21, GPIO.HIGH)
     
 
 
