@@ -32,18 +32,22 @@ def btn_v2_handle_left_click(event):
     if(btn_v2_pressed):
         btn_v2_pressed = False
         btn_v2.configure(bg="black")
+        GPIO.output(20, GPIO.LOW)
     else:
         btn_v2_pressed = True
         btn_v2.configure(bg="green")
+        GPIO.output(20, GPIO.HIGH)
         
 def btn_v3_handle_left_click(event):
     global btn_v3_pressed
     if(btn_v3_pressed):
         btn_v3_pressed = False
         btn_v3.configure(bg="black")
+        GPIO.output(21, GPIO.HIGH)
     else:
         btn_v3_pressed = True
         btn_v3.configure(bg="green")
+        GPIO.output(21, GPIO.HIGH)
     
 
 
