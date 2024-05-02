@@ -1,5 +1,7 @@
 import tkinter as tk
-import RPi.GPIO as GPIO
+import gpiod
+
+chip = gpiod.Chip('gpiochip4')
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(16, GPIO.OUT)
