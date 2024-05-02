@@ -74,10 +74,10 @@ btn_v1.pack(padx=5, pady=5, side=tk.LEFT)
 btn_v1.bind('<Button-1>', btn_v1_handle_left_click)    
 btn_v2 = tk.Button(master=frame, text="Ventil 2", fg="white", bg="black", width=10, height=5)
 btn_v2.pack(padx=5, pady=5, side=tk.LEFT)
-btn_v2.bind('<Button-2>', btn_v2_handle_left_click)    
+btn_v2.bind('<Button-1>', btn_v2_handle_left_click)    
 btn_v3 = tk.Button(master=frame, text="Ventil 3", fg="white", bg="black", width=10, height=5)
 btn_v3.pack(padx=5, pady=5, side=tk.LEFT)
-btn_v3.bind('<Button-3>', btn_v3_handle_left_click)    
+btn_v3.bind('<Button-1>', btn_v3_handle_left_click)    
     
 
     
