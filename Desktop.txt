@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=ShotMachine
+Type=Application
+Categories=Education
+Icon=boing
+Exec=/home/pi/ShotMachine/start.sh
