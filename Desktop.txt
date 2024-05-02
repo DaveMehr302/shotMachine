@@ -3,5 +3,7 @@ Version=1.0
 Name=ShotMachine
 Type=Application
 Categories=Education
-Icon=boing
-Exec=/home/pi/ShotMachine/start.sh
+Icon=/home/pi/Documents/shotMachine/logo.png
+Exec=/home/pi/Documents/shotMachine/start.sh
+
+=> Add this file to /usr/share/applications as shotMachine.desktop
