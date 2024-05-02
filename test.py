@@ -1,12 +1,20 @@
 import tkinter as tk
 import gpiod
+import time
+
+VALVE_1_GPIO_PIN = 16
+VALVE_2_GPIO_PIN = 20
+VALVE_3_GPIO_PIN = 21
 
 chip = gpiod.Chip('gpiochip4')
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(16, GPIO.OUT)
-GPIO.setup(20, GPIO.OUT)
-GPIO.setup(21, GPIO.OUT)
+valve1 = chip.get_line(VALVE_1_GPIO_PIN)
+valve2 = chip.get_line(VALVE_2_GPIO_PIN)
+valve3 = chip.get_line(VALVE_3_GPIO_PIN)
+
+valve1.request(consumer="VALVE_1", type=gpiod.LINE_REQ_DIR_OUT)
+valve2.request(consumer="VALVE_2", type=gpiod.LINE_REQ_DIR_OUT)
+valve3.request(consumer="VALVE_3", type=gpiod.LINE_REQ_DIR_OUT)
 
 window = tk.Tk()
 window.title("SPATENT shotMachine")
@@ -23,33 +31,33 @@ def btn_v1_handle_left_click(event):
     if(btn_v1_pressed):
         btn_v1_pressed = False
         btn_v1.configure(bg="black")
-        GPIO.output(16, GPIO.LOW)
+        valve1.set_value(0)
     else:
         btn_v1_pressed = True
         btn_v1.configure(bg="green")
-        GPIO.output(16, GPIO.HIGH)
+        valve1.set_value(1)
         
 def btn_v2_handle_left_click(event):
     global btn_v2_pressed
     if(btn_v2_pressed):
         btn_v2_pressed = False
         btn_v2.configure(bg="black")
-        GPIO.output(20, GPIO.LOW)
+        valve2.set_value(0)
     else:
         btn_v2_pressed = True
         btn_v2.configure(bg="green")
-        GPIO.output(20, GPIO.HIGH)
+        valve2.set_value(1)
         
 def btn_v3_handle_left_click(event):
     global btn_v3_pressed
     if(btn_v3_pressed):
         btn_v3_pressed = False
         btn_v3.configure(bg="black")
-        GPIO.output(21, GPIO.LOW)
+        valve3.set_value(0)
     else:
         btn_v3_pressed = True
         btn_v3.configure(bg="green")
-        GPIO.output(21, GPIO.HIGH)
+        valve3.set_value(1)
     
 
 
